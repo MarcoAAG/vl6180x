@@ -1,0 +1,3 @@
+[submodule "lib/STM32L4xx_HAL_ST"]
+	path = lib/STM32L4xx_HAL_ST
+	url = git@github.com:STM32-Libraries/STM32L4xx_HAL_ST.git
