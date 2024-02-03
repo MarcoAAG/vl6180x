@@ -1,6 +1,6 @@
 /**
   ******************************************************************************
-  * @file    I2C/I2C_TwoBoards_ComIT/Inc/stm32l4xx_it.h 
+  * @file    stm32l4xx_it.h
   * @author  MCD Application Team
   * @brief   This file contains the headers of the interrupt handlers.
   ******************************************************************************

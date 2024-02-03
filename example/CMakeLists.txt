@@ -22,9 +22,9 @@ set(SOURCES
 
 # Include directories
 include_directories(
-                    ../lib/STM32L4xx_HAL_ST/cmsis
-                    ../lib/STM32L4xx_HAL_ST/cmsis/core
-                    ../lib/STM32L4xx_HAL_ST/cmsis/device
+                    # ../lib/STM32L4xx_HAL_ST/cmsis
+                    # ../lib/STM32L4xx_HAL_ST/cmsis/core
+                    # ../lib/STM32L4xx_HAL_ST/cmsis/device
                     # ../lib/STM32L4xx_HAL_ST/conf
                     # ../lib/STM32L4xx_HAL_ST/stm32l4xx_hal_driver/Inc
                     .
@@ -34,12 +34,14 @@ include_directories(
 set(CMAKE_C_FLAGS "-mcpu=cortex-m4 -nostartfiles -O2 -g -Wall -std=c11 -Wl,-Map=output.map")
 
 # Linker flags
-set(CMAKE_EXE_LINKER_FLAGS "-T ../linker.ld")
+set(CMAKE_EXE_LINKER_FLAGS "-T ${CMAKE_CURRENT_SOURCE_DIR}/linker.ld")
 
 add_subdirectory(../lib/STM32L4xx_HAL_ST stm32l4xx_hal_st)
+add_subdirectory(../ vl6180x_lib)
 
 # add_executable(Libraries src/library.c)
 add_executable(${PROJECT_NAME}.out ${SOURCES} ${PROJECT_NAME}.c)
 target_link_libraries(${PROJECT_NAME}${PROJECT_VERSION}.out 
                         stm32l4xx_hal_st
+                        vl6180x_lib
 )
